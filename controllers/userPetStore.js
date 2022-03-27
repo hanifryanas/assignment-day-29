@@ -83,7 +83,9 @@ class controllerUsers{
                 console.log(data.splice(i, 1));
                 fs.writeFileSync('./users.json', JSON.stringify(data, null, 2));
                 userModel.deleteUserDB(req.body);
-                res.status(201).json(req.body);
+                res.status(201).json({
+                    message: 'User deleted'
+                });
                 break;
             }
         }
